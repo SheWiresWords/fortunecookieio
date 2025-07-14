@@ -1,0 +1,3 @@
+var isClicked
+
+var blank
