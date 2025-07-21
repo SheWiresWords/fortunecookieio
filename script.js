@@ -364,5 +364,47 @@ var fortunes = [
     "Your success will astonish everyone.",
     "Your talents will be recognized and suitably rewarded.",
     "Your work interests can capture the highest status or prestige."
-];
+];      
 
+function getRandomFortune() {
+    return fortunes[Math.floor(Math.random() * fortunes.length)];
+}
+
+function crackCookie() {
+    if (isClicked) return;
+    
+    isClicked = true;
+    
+    //hide cookie
+    document.getElementById('wholeCookie').style.display = 'none';
+    
+    //show halfs
+    const leftHalf = document.getElementById('leftHalf');
+    const rightHalf = document.getElementById('rightHalf');
+    
+    leftHalf.classList.remove('hidden');
+    rightHalf.classList.remove('hidden');
+    
+    //animate split
+    setTimeout(()=>{
+        leftHalf.classList.add('split');
+        rightHalf.classList.add('split');
+    }, 50);
+    
+    //display fortune after splits
+    setTimeout(()=>{
+        const fortuneContainer = document.getElementById('fortuneContainer');
+        const fortuneText = document.getElementById('fortuneText');
+        const instruction = document.getElementById('instruction');
+        
+        fortuneText.textContent = getRandomFortune();
+        fortuneContainer.classList.remove('hidden');
+        instruction.textContent = "Your Fortune:";
+    }, 900);
+}
+
+//event listener when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const wholeCookie = document.getElementById('wholeCookie');
+    wholeCookie.addEventListener('click', crackCookie);
+});
