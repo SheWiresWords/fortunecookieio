@@ -2,27 +2,32 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        
+        <title>Fortune Cookie .io</title>
+        <link rel="stylesheet" href="style.css">
     </head>
-<!-- Think about doing images for each half-->
     <body>
         <div class="upper">
             <lightdarktoggle>
-                </lightdarktoggle>
+            </lightdarktoggle>
         </div>
         <div class="main">
-            <h2> Click me! </h2>
+            <h2 id="instruction">Click me!</h2>
             
-            <img src="cookie img">
-            <img src="paper img">
-            <img src="cracked img">
-            <p> This is your fortune </p>
-
+            <div class="cookie-container">
+                <img id="wholeCookie" src="assets/fortcookie.png" alt="This is a cartoon graphic of a fortune cookie in brown/yellow shades." class="cookie-image">
+                <img id="leftHalf" src="assets/fortleft.png" alt="This is the left half of the fortune cookie." class="cookie-half left-half hidden">
+                <img id="rightHalf" src="assets/fortright.png" alt="This is the right half of the fortune cookie." class="cookie-half right-half hidden">
+                <div id="fortuneContainer" class="fortune-container hidden">
+                    <img src="assets/fortpaper.png" alt="Fortune Paper" class="fortune-paper">
+                    <p id="fortuneText" class="fortune-text"></p>
+                </div>
+            </div>
         </div>
 
         <footer>
-            <h3> Made with love </h3>
+            <h3>Made with love 💗</h3>
         </footer>
 
+        <script src="script.js"></script>
     </body>
 </html>
