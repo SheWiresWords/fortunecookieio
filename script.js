@@ -408,3 +408,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const wholeCookie = document.getElementById('wholeCookie');
     wholeCookie.addEventListener('click', crackCookie);
 });
+
+
+   
+   
