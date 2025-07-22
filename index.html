@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Fortune Cookie .io</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./styles.css">
+        <script src="./script.js"></script>
     </head>
     <body>
         <div class="upper">
@@ -17,9 +18,12 @@
                 <img id="wholeCookie" src="assets/fortcookie.png" alt="This is a cartoon graphic of a fortune cookie in brown/yellow shades." class="cookie-image">
                 <img id="leftHalf" src="assets/fortleft.png" alt="This is the left half of the fortune cookie." class="cookie-half left-half hidden">
                 <img id="rightHalf" src="assets/fortright.png" alt="This is the right half of the fortune cookie." class="cookie-half right-half hidden">
-                <div id="fortuneContainer" class="fortune-container hidden">
-                    <img src="assets/fortpaper.png" alt="Fortune Paper" class="fortune-paper">
-                    <p id="fortuneText" class="fortune-text"></p>
+                 <div id="fortuneContainer" class="fortune-container hidden">
+                    <span class="move-shake">
+                        <img src="assets/fortpaper.png" alt="Fortune Cookie Paper on which the fortune is wrriten" class="fortune-paper">
+                        <p id="fortuneText" class="fortune-text"></p>
+                    </span>
+
                 </div>
             </div>
         </div>
