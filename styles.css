@@ -10,6 +10,7 @@ body {
 *{
   box-sizing: border-box;
 }
+     
 
 .main{
   min-height: 80vh;
@@ -19,14 +20,14 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+   
 #instruction{
   margin-bottom: 2rem;
   font-size: 2rem;
   color: #333;
   text-align: center;
-}
-
+}                     
+                    
 .cookie-container{
   position: relative;
   display: flex;
@@ -34,8 +35,8 @@ body {
   align-items: center;
   min-height: 300px;
   min-width: 400px;
-}
-
+}        
+  
 .cookie-image{
   max-width: 250px;
   height: auto;
@@ -87,6 +88,18 @@ body {
   text-align:center;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.1);
+}
+
+span.move-shake:hover{
+  animation: tilt-shaking 0.35s infinite;
+}
+
+@keyframes tilt-shaking{
+  0% {transform: translate(0, 0) rotate(0deg);}
+  25% {transform: translate(2px, 2px) rotate(2deg);}
+  50% {transform: translate(0, 0) rotate(0eg);}
+  75% {transform: translate(-2px, 2px) rotate(-2deg);}
+  100% {transform: translate(0, 0) rotate(0deg);}
 }
 
 .fortune-container:not(.hidden){
