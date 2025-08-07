@@ -115,6 +115,10 @@ body {
   transition: transform 0.8s ease;
   top: 50%;
   left: 50%;
+  filter: 
+    drop-shadow(0 0 10px #ffff00)
+    hue-rotate(20deg)
+    saturate(1.2);
 }
 
 .left-half{
@@ -125,12 +129,13 @@ body {
   transform: translate(-50%, -50%);
 }
 
+/*EDIT: Added rotation to splits*/
 .left-half.split{
-  transform: translate(-150%, -50%);
+  transform: translate(-150%, -50%) rotate(-15deg);
 }
 
 .right-half.split{
-  transform: translate(50%, -50%);
+  transform: translate(50%, -50%)rotate(15deg);
 }
 
 .hidden{
@@ -169,6 +174,10 @@ span.move-shake:hover{
 .fortune-paper{
   max-width: 300px;
   height: auto;
+  filter: 
+    drop-shadow(0 0 15px #00ffff)
+    hue-rotate(180deg)
+    contrast(1.2);
 }
 
 .fortune-text{
@@ -176,14 +185,15 @@ span.move-shake:hover{
   top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
-  color: #333;
+  color: #333333;
   text-align: center;
   width:210px;
   max-width: 300px;
-  line-height: 1;
+  line-height: 1.2;
   margin: 0;
+  text-shadow: 1px 1px 0px #ffffff;
 }
 
 .reset-button{
@@ -191,47 +201,93 @@ span.move-shake:hover{
   padding: 12px 24px;
   font-size: 16px;
   font-weight: bold;
-  color: white;
-  background-color: #ff6b35;
-  border: none;
-  border-radius: 25px;
+  color: black;
+  background: linear-gradient(45deg, #00ff41, #00cc33);
+  border: 3px solid #00ff41;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  /*cool button design*/
+  box-shadow: 
+    0 0 10px #00ff41,
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
+/*redid hover to make pink!*/
 .reset-button:hover{
-  background-color: #ff5722;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0px rgba(255, 107, 53, 0.8);
+  background: linear-gradient(45deg, #ff0080, #cc0066);
+  border-color: #ff0080;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 
+    0 6px 0px #cc0066,
+    0 0 20px #ff0080;
+  text-shadow: 0 0 5px #fff;
 }
 
 .reset-button:active{
   transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
+  box-shadow: 
+    0 2px 0px #cc0066, 0 0 10px #ff0080;
 }
 
 footer{
   text-align: center;
   padding: 2rem;
-  background-color: #333;
-  color: white;
-  margin:0;
+  background: linear-gradient(45deg, #220042, #380070, #220042);  color: #00ff41;
+  margin: 0;
+  border-top: 2px solid #00ff41;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+  position: relative;
 }
 
+/*make footer text glow*/
+footer h3{
+  font-size: 12px;
+  margin: 0;
+  text-shadow: 0 0 10px #00ff41;
+  animation: footer-glow 3s ease-in-out infinite alternate;
+}
+
+/*green text pulse*/
+@keyframes footer-glow{
+  from { text-shadow: 0 0 10px #00ff41; }
+  to { text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41; }
+}
+      
 @keyframes emergeFromCookie{
   from{
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.1);
-  }
-  to{
-    opacity: 1;
+  }   
+  to{    
+    opacity: 1;   
     transform: translate(-50%, -50%) scale(1);
-  }
+  }                
+}                       
+                
+/*Retro scan lines effect*/      
+body::after {
+  content: '';   
+  position: fixed;        
+  top: 0;    
+  left: 0;             
+  right: 0;        
+  bottom: 0;   
+  background: linear-gradient(
+    transparent 50%,   
+    rgba(0, 255, 65, 0.02) 50%
+  );      
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10000000;
 }
-
+      
 @media (max-width: 600px){
   .cookie-container {
     min-width: 300px;
-  }
+  }   
   
   .cookie-image{
     max-width: 200px;
