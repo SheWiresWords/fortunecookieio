@@ -1,16 +1,30 @@
+/*found this cool game font*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 html,
-body {
+body {    
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #fff1cc;
+  font-family: 'Press Start 2P', monospace;
+  /*make flowing background with retro game line aesthetic, hide extra horizontal pattern*/
+  background: linear-gradient(45deg, #220042, #380070, #220042);
+  background-size: 400% 400%;
+  animation: retro-bg 8s ease infinite;
+  color: #00ff40;
+  overflow-x: hidden;
 }
 
-*{
+/*background like old game */
+@keyframes retro-bg{
+  0%{ background-position: 0% 50%;}
+  50%{background-position: 100% 50%;}
+  100%{ background-position: 0% 50%;}
+}
+        
+*{  
   box-sizing: border-box;
 }
-     
+        
 
 .main{
   min-height: 80vh;
@@ -20,13 +34,37 @@ body {
   justify-content: center;
   align-items: center;
 }
-   
+
+/*Customize the click me*/
 #instruction{
   margin-bottom: 2rem;
-  font-size: 2rem;
-  color: #333;
+  font-size: 1.2rem;
+  color: #ff0080;
   text-align: center;
-}                     
+  text-shadow: 
+    0 0 5px #ff0080,
+    0 0 10px #ff0080,
+    0 0 15px #ff0080;
+  animation: glow-pulse 2s ease-in-out infinite alternate;
+  position: relative;
+  z-index: 2;
+}
+
+/*very subtle flashing on the click me pink*/
+@keyframes glow-pulse{
+  from{
+    text-shadow: 
+      0 0 5px #ff0080,
+      0 0 10px #ff0080,
+      0 0 15px #ff0080;
+  }
+  to{
+    text-shadow: 
+      0 0 10px #ff0080,
+      0 0 20px #ff0080,
+      0 0 30px #ff0080;
+  }
+}               
                     
 .cookie-container{
   position: relative;
@@ -35,17 +73,39 @@ body {
   align-items: center;
   min-height: 300px;
   min-width: 400px;
+  background: radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%);
+  border: 2px solid #00ff41;
+  border-radius: 10px;
+  box-shadow: 
+  0 0 20px #00ff41,
+  inset 0 0 20px rgba(0, 255, 65, 0.1);
 }        
   
 .cookie-image{
   max-width: 250px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
+  /*glow image like retro game*/
+  filter: 
+    drop-shadow(0 0 10px #ffff00)
+    hue-rotate(20deg)
+    saturate(1.2);
 }
 
 .cookie-image:hover{
-  transform: scale(1.05);
+  transform: scale(1.1);
+  filter: 
+    drop-shadow(0 0 20px #ffff00)
+    hue-rotate(40deg) /*Bigger glow on hover*/
+    saturate(1.5);
+  animation: retro-shake 0.5s ease-in-out;
+}
+
+@keyframes retro-shake{
+  0%, 100% {transform: scale(1.1) translateX(0);}
+  25% {transform: scale(1.1) translateX(-2px);}
+  75% {transform: scale(1.1) translateX(2px);}
 }
 
 .cookie-half{
